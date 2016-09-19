@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZipperDetailsVO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="ZipperDetailsEO.DETAILID, 
+       ZipperDetailsEO.LINEID, 
+       ZipperDetailsEO.GMTSIZE, 
+       ZipperDetailsEO.ZIPPERSIZE"
+  FromList="MJ_OM_ZIPPER_DETAILS ZipperDetailsEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="ZipperDetailsEO"
+    Entity="model.entity.ZipperDetailsEO"/>
+  <ViewAttribute
+    Name="Detailid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Detailid"
+    EntityUsage="ZipperDetailsEO"
+    AliasName="DETAILID"/>
+  <ViewAttribute
+    Name="Lineid"
+    PrecisionRule="true"
+    EntityAttrName="Lineid"
+    EntityUsage="ZipperDetailsEO"
+    AliasName="LINEID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.view.ZipperDetailsVO.Lineid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Gmtsize"
+    PrecisionRule="true"
+    EntityAttrName="Gmtsize"
+    EntityUsage="ZipperDetailsEO"
+    AliasName="GMTSIZE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.view.ZipperDetailsVO.Gmtsize_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Zippersize"
+    PrecisionRule="true"
+    EntityAttrName="Zippersize"
+    EntityUsage="ZipperDetailsEO"
+    AliasName="ZIPPERSIZE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.view.ZipperDetailsVO.Zippersize_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="editPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZipperLineVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ZipperLineVO1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="ZipperDetailsVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ZipperDetailsVO1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="ZipperHeaderVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ZipperHeaderVO1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="ZipperLineVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZipperLineVO12Query"/>
+    <searchRegion Binds="ZipperDetailsVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ZipperDetailsVO12Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ZipperLineVO1Iterator" id="ZipperLineVO1">
+      <nodeDefinition DefName="model.view.ZipperLineVO" Name="ZipperLineVO10">
+        <AttrNames>
+          <Item Value="Lineid"/>
+          <Item Value="Headedid"/>
+          <Item Value="Applicationarea"/>
+          <Item Value="Uom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ZipperDetailsVO1Iterator" id="ZipperDetailsVO1">
+      <nodeDefinition DefName="model.view.ZipperDetailsVO"
+                      Name="ZipperDetailsVO10">
+        <AttrNames>
+          <Item Value="Detailid"/>
+          <Item Value="Lineid"/>
+          <Item Value="Gmtsize"/>
+          <Item Value="Zippersize"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZipperLineVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ZipperLineVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <tree IterBinding="ZipperLineVO1Iterator" id="ZipperLineVO11">
+      <nodeDefinition DefName="model.view.ZipperLineVO" Name="ZipperLineVO110">
+        <AttrNames>
+          <Item Value="Lineid"/>
+          <Item Value="Headedid"/>
+          <Item Value="Applicationarea"/>
+          <Item Value="Uom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ZipperDetailsVO1Iterator" id="ZipperDetailsVO11">
+      <nodeDefinition DefName="model.view.ZipperDetailsVO"
+                      Name="ZipperDetailsVO110">
+        <AttrNames>
+          <Item Value="Detailid"/>
+          <Item Value="Lineid"/>
+          <Item Value="Gmtsize"/>
+          <Item Value="Zippersize"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZipperHeaderVO1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ZipperHeaderVO1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ZipperHeaderVO1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ZipperHeaderVO1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="ZipperDetailsVO1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ZipperDetailsVO1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <listOfValues StaticList="false" IterBinding="ZipperHeaderVO1Iterator"
+                  Uses="LOV_Buyername" id="Buyername"/>
+    <attributeValues IterBinding="ZipperHeaderVO1Iterator" id="Headeid">
+      <AttrNames>
+        <Item Value="Headeid"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ZipperHeaderVO1Iterator" StaticList="false"
+          Uses="LOV_Season" id="Season" DTSupportsMRU="false"/>
+    <list IterBinding="ZipperHeaderVO1Iterator" StaticList="false"
+          Uses="LOV_Stylename" id="Stylename" DTSupportsMRU="false"/>
+    <list IterBinding="ZipperHeaderVO1Iterator" StaticList="false"
+          Uses="LOV_Styleno" id="Styleno" DTSupportsMRU="false"/>
+    <tree IterBinding="ZipperLineVO1Iterator" id="ZipperLineVO12">
+      <nodeDefinition DefName="model.view.ZipperLineVO" Name="ZipperLineVO120">
+        <AttrNames>
+          <Item Value="Lineid"/>
+          <Item Value="Headedid"/>
+          <Item Value="Applicationarea"/>
+          <Item Value="Uom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ZipperDetailsVO1Iterator" id="ZipperDetailsVO12">
+      <nodeDefinition DefName="model.view.ZipperDetailsVO"
+                      Name="ZipperDetailsVO120">
+        <AttrNames>
+          <Item Value="Detailid"/>
+          <Item Value="Lineid"/>
+          <Item Value="Gmtsize"/>
+          <Item Value="Zippersize"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

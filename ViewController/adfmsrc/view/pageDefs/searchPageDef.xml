@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="searchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ZipperHeaderVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ZipperHeaderVO1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ZipperHeaderVO1Iterator"
+                  id="ImplicitViewCriteriaQuery1"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ZipperHeaderVO1Iterator"
+                  id="ImplicitViewCriteriaQuery2"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ZipperHeaderVO1Iterator"
+                  id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ZipperHeaderVO1Iterator" id="ZipperHeaderVO1">
+      <nodeDefinition DefName="model.view.ZipperHeaderVO"
+                      Name="ZipperHeaderVO10">
+        <AttrNames>
+          <Item Value="Headeid"/>
+          <Item Value="Buyerid"/>
+          <Item Value="Season"/>
+          <Item Value="Stylename"/>
+          <Item Value="Styleno"/>
+          <Item Value="Buyername"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ZipperHeaderVO1Iterator" id="ZipperHeaderVO11">
+      <nodeDefinition DefName="model.view.ZipperHeaderVO"
+                      Name="ZipperHeaderVO110">
+        <AttrNames>
+          <Item Value="Headeid"/>
+          <Item Value="Buyerid"/>
+          <Item Value="Buyername"/>
+          <Item Value="Season"/>
+          <Item Value="Stylename"/>
+          <Item Value="Styleno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ZipperHeaderVO1Iterator" id="ZipperHeaderVO12">
+      <nodeDefinition DefName="model.view.ZipperHeaderVO"
+                      Name="ZipperHeaderVO120">
+        <AttrNames>
+          <Item Value="Headeid"/>
+          <Item Value="Buyerid"/>
+          <Item Value="Season"/>
+          <Item Value="Stylename"/>
+          <Item Value="Styleno"/>
+          <Item Value="Buyername"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ZipperHeaderVO1Iterator" id="ZipperHeaderVO13">
+      <nodeDefinition DefName="model.view.ZipperHeaderVO"
+                      Name="ZipperHeaderVO130">
+        <AttrNames>
+          <Item Value="Headeid"/>
+          <Item Value="Buyerid"/>
+          <Item Value="Buyername"/>
+          <Item Value="Season"/>
+          <Item Value="Stylename"/>
+          <Item Value="Styleno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ZipperHeaderVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ZipperHeaderVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ZipperHeaderVO1Iterator" id="ZipperHeaderVO14">
+      <nodeDefinition DefName="model.view.ZipperHeaderVO"
+                      Name="ZipperHeaderVO140">
+        <AttrNames>
+          <Item Value="Headeid"/>
+          <Item Value="Buyername"/>
+          <Item Value="Season"/>
+          <Item Value="Stylename"/>
+          <Item Value="Styleno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

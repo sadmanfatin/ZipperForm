@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CZipperDetailAssoc"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ZipperLineEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.entity.ZipperLineEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ZipperLineEO"/>
+      <Attr Name="_foreignKey"
+        Value="model.entity.ZipperLineEO.MjOmZipperLinePk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.ZipperLineEO.Lineid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ZipperDetailsEO"
+    Cardinality="-1"
+    Owner="model.entity.ZipperDetailsEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ZipperDetailsEO"/>
+      <Attr Name="_foreignKey"
+        Value="model.entity.ZipperDetailsEO.CZipperDetail"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.ZipperDetailsEO.Lineid"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

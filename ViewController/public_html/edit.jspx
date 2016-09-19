@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:panelSplitter id="ps1" orientation="vertical"
+                              splitterPosition="152">
+              <f:facet name="first">
+                <af:panelFormLayout id="pfl1" rows="3">
+                  <af:inputText value="#{bindings.Headeid.inputValue}"
+                                label="#{bindings.Headeid.hints.label}"
+                                required="#{bindings.Headeid.hints.mandatory}"
+                                columns="#{bindings.Headeid.hints.displayWidth}"
+                                maximumLength="#{bindings.Headeid.hints.precision}"
+                                shortDesc="#{bindings.Headeid.hints.tooltip}"
+                                id="it1" readOnly="true">
+                    <f:validator binding="#{bindings.Headeid.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.Headeid.format}"/>
+                  </af:inputText>
+                  <af:inputListOfValues id="buyernameId"
+                                        popupTitle="Search and Select: #{bindings.Buyername.hints.label}"
+                                        value="#{bindings.Buyername.inputValue}"
+                                        label="#{bindings.Buyername.hints.label}"
+                                        model="#{bindings.Buyername.listOfValuesModel}"
+                                        required="#{bindings.Buyername.hints.mandatory}"
+                                        columns="#{bindings.Buyername.hints.displayWidth}"
+                                        shortDesc="#{bindings.Buyername.hints.tooltip}"
+                                        autoSubmit="true">
+                    <f:validator binding="#{bindings.Buyername.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{bindings.Buyername.suggestedItems}"/>
+                  </af:inputListOfValues>
+                  <af:selectOneChoice value="#{bindings.Season.inputValue}"
+                                      label="#{bindings.Season.label}"
+                                      required="#{bindings.Season.hints.mandatory}"
+                                      shortDesc="#{bindings.Season.hints.tooltip}"
+                                      id="soc4" autoSubmit="true">
+                    <f:selectItems value="#{bindings.Season.items}" id="si4"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.Stylename.inputValue}"
+                                      label="#{bindings.Stylename.label}"
+                                      required="#{bindings.Stylename.hints.mandatory}"
+                                      shortDesc="#{bindings.Stylename.hints.tooltip}"
+                                      id="soc1">
+                    <f:selectItems value="#{bindings.Stylename.items}"
+                                   id="si2"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.Styleno.inputValue}"
+                                      label="#{bindings.Styleno.label}"
+                                      required="#{bindings.Styleno.hints.mandatory}"
+                                      shortDesc="#{bindings.Styleno.hints.tooltip}"
+                                      id="soc3">
+                    <f:selectItems value="#{bindings.Styleno.items}" id="si3"/>
+                  </af:selectOneChoice>
+                  <f:facet name="footer">
+                    <af:group id="g1">
+                      <af:panelGroupLayout id="pgl1"
+                                           inlineStyle="padding:10px;">
+                        <af:spacer width="30" height="20" id="s2"/>
+                        <af:commandButton text="Back To Search"
+                                          id="commandButton1"
+                                          action="back to search"
+                                          inlineStyle="font-size:13px; padding:5px; margin:5.0px;"
+                                          icon="/back.png"/>
+                        <af:spacer width="350" height="30" id="s1"/>
+                        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                          text="Save"
+                                          disabled="#{!bindings.Commit.enabled}"
+                                          id="cb8"
+                                          inlineStyle="font-size:13px; padding:5px; margin:5.0px;"
+                                          icon="/icons/save3.png"
+                                          partialTriggers="it1 buyernameId soc4 soc1 soc3 pc1:t1:c2 pc1:t1:c4 pc1:t1:c3 pc1:t1:c1 pc2:t2:c7 pc2:t2:c8 pc2:t2:c6 pc2:t2:c5"/>
+                        <af:spacer width="10" height="10" id="s3"/>
+                        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                          text="Cancel"
+                                          disabled="#{!bindings.Rollback.enabled}"
+                                          immediate="true" id="cb9"
+                                          inlineStyle="font-size:13px; padding:5px; margin:5.0px;"
+                                          icon="/icons/cancel3.jpg">
+                          <af:resetActionListener/>
+                        </af:commandButton>
+                      </af:panelGroupLayout>
+                    </af:group>
+                  </f:facet>
+                </af:panelFormLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:panelSplitter id="ps2" orientation="vertical"
+                                  splitterPosition="207">
+                  <f:facet name="first">
+                    <af:panelCollection id="pc1">
+                      <f:facet name="toolbar">
+                        <af:toolbar id="t3">
+                          <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                            text="Create"
+                                            disabled="#{!bindings.CreateInsert.enabled}"
+                                            id="cb1"
+                                            inlineStyle="font-size:13px; padding:5.0px;"
+                                            icon="/add2.png"/>
+                          <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                            text="Delete "
+                                            disabled="#{!bindings.Delete.enabled}"
+                                            id="cb2"
+                                            inlineStyle="padding:5px; font-size:13px;"
+                                            icon="/delete2.png"/>
+                        </af:toolbar>
+                      </f:facet>
+                      <af:table value="#{bindings.ZipperLineVO12.collectionModel}"
+                                var="row"
+                                rows="#{bindings.ZipperLineVO12.rangeSize}"
+                                emptyText="#{bindings.ZipperLineVO12.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                fetchSize="#{bindings.ZipperLineVO12.rangeSize}"
+                                rowBandingInterval="0"
+                                filterModel="#{bindings.ZipperLineVO12Query.queryDescriptor}"
+                                queryListener="#{bindings.ZipperLineVO12Query.processQuery}"
+                                filterVisible="true" varStatus="vs"
+                                selectedRowKeys="#{bindings.ZipperLineVO12.collectionModel.selectedRow}"
+                                selectionListener="#{bindings.ZipperLineVO12.collectionModel.makeCurrent}"
+                                rowSelection="single" id="t1"
+                                partialTriggers="::cb1 ::cb2">
+                        <af:column sortProperty="#{bindings.ZipperLineVO12.hints.Lineid.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.ZipperLineVO12.hints.Lineid.label}"
+                                   id="c2" align="center">
+                          <af:inputText value="#{row.bindings.Lineid.inputValue}"
+                                        label="#{bindings.ZipperLineVO12.hints.Lineid.label}"
+                                        required="#{bindings.ZipperLineVO12.hints.Lineid.mandatory}"
+                                        columns="#{bindings.ZipperLineVO12.hints.Lineid.displayWidth}"
+                                        maximumLength="#{bindings.ZipperLineVO12.hints.Lineid.precision}"
+                                        shortDesc="#{bindings.ZipperLineVO12.hints.Lineid.tooltip}"
+                                        id="it3" readOnly="true">
+                            <f:validator binding="#{row.bindings.Lineid.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ZipperLineVO12.hints.Lineid.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ZipperLineVO12.hints.Headedid.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.ZipperLineVO12.hints.Headedid.label}"
+                                   id="c4" visible="false">
+                          <af:inputText value="#{row.bindings.Headedid.inputValue}"
+                                        label="#{bindings.ZipperLineVO12.hints.Headedid.label}"
+                                        required="#{bindings.ZipperLineVO12.hints.Headedid.mandatory}"
+                                        columns="#{bindings.ZipperLineVO12.hints.Headedid.displayWidth}"
+                                        maximumLength="#{bindings.ZipperLineVO12.hints.Headedid.precision}"
+                                        shortDesc="#{bindings.ZipperLineVO12.hints.Headedid.tooltip}"
+                                        id="it2">
+                            <f:validator binding="#{row.bindings.Headedid.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ZipperLineVO12.hints.Headedid.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ZipperLineVO12.hints.Applicationarea.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.ZipperLineVO12.hints.Applicationarea.label}"
+                                   id="c3" width="130" align="center">
+                          <af:inputText value="#{row.bindings.Applicationarea.inputValue}"
+                                        label="#{bindings.ZipperLineVO12.hints.Applicationarea.label}"
+                                        required="#{bindings.ZipperLineVO12.hints.Applicationarea.mandatory}"
+                                        columns="#{bindings.ZipperLineVO12.hints.Applicationarea.displayWidth}"
+                                        maximumLength="#{bindings.ZipperLineVO12.hints.Applicationarea.precision}"
+                                        shortDesc="#{bindings.ZipperLineVO12.hints.Applicationarea.tooltip}"
+                                        id="it4">
+                            <f:validator binding="#{row.bindings.Applicationarea.validator}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ZipperLineVO12.hints.Uom.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.ZipperLineVO12.hints.Uom.label}"
+                                   id="c1" align="center">
+                          <af:selectOneChoice value="#{row.bindings.Uom.inputValue}"
+                                              label="#{row.bindings.Uom.label}"
+                                              required="#{bindings.ZipperLineVO12.hints.Uom.mandatory}"
+                                              shortDesc="#{bindings.ZipperLineVO12.hints.Uom.tooltip}"
+                                              id="soc2">
+                            <f:selectItems value="#{row.bindings.Uom.items}"
+                                           id="si1"/>
+                          </af:selectOneChoice>
+                        </af:column>
+                      </af:table>
+                    </af:panelCollection>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:panelCollection id="pc2">
+                      <f:facet name="toolbar">
+                        <af:toolbar id="t4">
+                          <af:commandButton text="Back To Search" id="cb5"
+                                            action="back to search"
+                                            inlineStyle="font-size:13px; padding:5.0px;"
+                                            icon="/back.png"/>
+                          <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
+                                            text="Create"
+                                            disabled="#{!bindings.CreateInsert1.enabled}"
+                                            id="cb3"
+                                            inlineStyle="font-size:13px; padding:5.0px;"
+                                            icon="/add2.png"/>
+                          <af:commandButton actionListener="#{bindings.Delete1.execute}"
+                                            text="Delete "
+                                            disabled="#{!bindings.Delete1.enabled}"
+                                            id="cb4"
+                                            inlineStyle="font-size:13px; padding:5.0px;"
+                                            icon="/delete2.png"/>
+                          <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                            text="Save"
+                                            disabled="#{!bindings.Commit.enabled}"
+                                            id="cb6" action="back to search"
+                                            inlineStyle="font-size:13px; padding:5.0px;"
+                                            icon="/save.png" visible="false"/>
+                          <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                            text="Cancel"
+                                            disabled="#{!bindings.Rollback.enabled}"
+                                            immediate="true" id="cb7"
+                                            inlineStyle="font-size:13px; padding:5.0px;"
+                                            icon="/cancel2.png" visible="false">
+                            <af:resetActionListener/>
+                          </af:commandButton>
+                        </af:toolbar>
+                      </f:facet>
+                      <f:facet name="statusbar"/>
+                      <af:table value="#{bindings.ZipperDetailsVO12.collectionModel}"
+                                var="row"
+                                rows="#{bindings.ZipperDetailsVO12.rangeSize}"
+                                emptyText="#{bindings.ZipperDetailsVO12.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                fetchSize="#{bindings.ZipperDetailsVO12.rangeSize}"
+                                rowBandingInterval="0"
+                                filterModel="#{bindings.ZipperDetailsVO12Query.queryDescriptor}"
+                                queryListener="#{bindings.ZipperDetailsVO12Query.processQuery}"
+                                filterVisible="true" varStatus="vs"
+                                selectedRowKeys="#{bindings.ZipperDetailsVO12.collectionModel.selectedRow}"
+                                selectionListener="#{bindings.ZipperDetailsVO12.collectionModel.makeCurrent}"
+                                rowSelection="single" id="t2"
+                                partialTriggers="::cb3 ::cb4">
+                        <af:column sortProperty="#{bindings.ZipperDetailsVO12.hints.Detailid.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="Detail No"
+                                   id="c7" align="center">
+                          <af:inputText value="#{row.bindings.Detailid.inputValue}"
+                                        label="#{bindings.ZipperDetailsVO12.hints.Detailid.label}"
+                                        required="#{bindings.ZipperDetailsVO12.hints.Detailid.mandatory}"
+                                        columns="#{bindings.ZipperDetailsVO12.hints.Detailid.displayWidth}"
+                                        maximumLength="#{bindings.ZipperDetailsVO12.hints.Detailid.precision}"
+                                        shortDesc="#{bindings.ZipperDetailsVO12.hints.Detailid.tooltip}"
+                                        id="it5" readOnly="true">
+                            <f:validator binding="#{row.bindings.Detailid.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ZipperDetailsVO12.hints.Detailid.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ZipperDetailsVO12.hints.Lineid.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.ZipperDetailsVO12.hints.Lineid.label}"
+                                   id="c8" visible="false">
+                          <af:inputText value="#{row.bindings.Lineid.inputValue}"
+                                        label="#{bindings.ZipperDetailsVO12.hints.Lineid.label}"
+                                        required="#{bindings.ZipperDetailsVO12.hints.Lineid.mandatory}"
+                                        columns="#{bindings.ZipperDetailsVO12.hints.Lineid.displayWidth}"
+                                        maximumLength="#{bindings.ZipperDetailsVO12.hints.Lineid.precision}"
+                                        shortDesc="#{bindings.ZipperDetailsVO12.hints.Lineid.tooltip}"
+                                        id="it7">
+                            <f:validator binding="#{row.bindings.Lineid.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ZipperDetailsVO12.hints.Lineid.format}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ZipperDetailsVO12.hints.Gmtsize.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.ZipperDetailsVO12.hints.Gmtsize.label}"
+                                   id="c6" align="center">
+                          <af:inputText value="#{row.bindings.Gmtsize.inputValue}"
+                                        label="#{bindings.ZipperDetailsVO12.hints.Gmtsize.label}"
+                                        required="#{bindings.ZipperDetailsVO12.hints.Gmtsize.mandatory}"
+                                        columns="#{bindings.ZipperDetailsVO12.hints.Gmtsize.displayWidth}"
+                                        maximumLength="#{bindings.ZipperDetailsVO12.hints.Gmtsize.precision}"
+                                        shortDesc="#{bindings.ZipperDetailsVO12.hints.Gmtsize.tooltip}"
+                                        id="it6">
+                            <f:validator binding="#{row.bindings.Gmtsize.validator}"/>
+                          </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.ZipperDetailsVO12.hints.Zippersize.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.ZipperDetailsVO12.hints.Zippersize.label}"
+                                   id="c5" align="center">
+                          <af:inputText value="#{row.bindings.Zippersize.inputValue}"
+                                        label="#{bindings.ZipperDetailsVO12.hints.Zippersize.label}"
+                                        required="#{bindings.ZipperDetailsVO12.hints.Zippersize.mandatory}"
+                                        columns="#{bindings.ZipperDetailsVO12.hints.Zippersize.displayWidth}"
+                                        maximumLength="#{bindings.ZipperDetailsVO12.hints.Zippersize.precision}"
+                                        shortDesc="#{bindings.ZipperDetailsVO12.hints.Zippersize.tooltip}"
+                                        id="it8">
+                            <f:validator binding="#{row.bindings.Zippersize.validator}"/>
+                          </af:inputText>
+                        </af:column>
+                      </af:table>
+                    </af:panelCollection>
+                  </f:facet>
+                </af:panelSplitter>
+              </f:facet>
+            </af:panelSplitter>
+            <!-- id="af_one_column_stretched"   -->
+          </f:facet>
+          <f:facet name="top">
+            <af:panelHeader text="Zipper Sample Form" id="ph1"
+                            icon="/icons/edit (3).png"/>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

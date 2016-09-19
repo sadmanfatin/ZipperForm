@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ZipperDetailsEO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MJ_OM_ZIPPER_DETAILS"
+  AliasName="ZipperDetailsEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="model.entity.ZipperDetailsEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="Detailid"
+    IsNotNull="true"
+    ColumnName="DETAILID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MJ_OM_ZIPPER_DETAILS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Lineid"
+    ColumnName="LINEID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MJ_OM_ZIPPER_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Gmtsize"
+    Precision="10"
+    ColumnName="GMTSIZE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MJ_OM_ZIPPER_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Zippersize"
+    Precision="10"
+    ColumnName="ZIPPERSIZE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MJ_OM_ZIPPER_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ZipperLineEO"
+    Association="model.entity.CZipperDetailAssoc"
+    AssociationEnd="model.entity.CZipperDetailAssoc.ZipperLineEO"
+    AssociationOtherEnd="model.entity.CZipperDetailAssoc.ZipperDetailsEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MjOmThreadDetailsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MJ_OM_THREAD_DETAILS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.ZipperDetailsEO.Detailid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CZipperDetail">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MJ_OM_ZIPPER_LINE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="C_ZIPPER_DETAIL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.ZipperDetailsEO.Lineid"/>
+    </AttrArray>
+  </Key>
+</Entity>
